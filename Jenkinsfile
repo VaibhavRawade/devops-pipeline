@@ -10,19 +10,19 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'mvn clean package'
+                bat 'mvn clean package'
             }
         }
 
         stage('Docker Build') {
             steps {
-                sh 'docker build -t devops-app .'
+                bat 'docker build -t devops-app .'
             }
         }
 
         stage('Docker Run') {
             steps {
-                sh 'docker run -d -p 8080:8080 --name devops-app devops-app'
+                bat 'docker run -d -p 8080:8080 --name devops-app devops-app'
             }
         }
     }
